@@ -1,6 +1,5 @@
 const notes = require('express').Router();
 const {readFromFile, readAndAppend} = require('../helpers/fsUtils.js');
-const {v4: uuidv4} = require (uuid);
 
 notes.get('/', (req, res) => {
     readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)))
@@ -24,4 +23,4 @@ notes.post('/', (req, res) => {
     }
 });
 
-modules.exports = notes;
+module.exports = notes;
