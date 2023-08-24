@@ -9,7 +9,7 @@ notes.get('/', (req, res) => {
 
 notes.get('/:id', (req, res) => {
     console.log(req.params);
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+    // readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 })
 
 notes.post('/', (req, res) => {
@@ -20,10 +20,10 @@ notes.post('/', (req, res) => {
     if(req.body){
         const newNote = {
             title,
-            tip,
+            text,
             id: uuidv4()
         }
-        readAndAppend(newNote, '../db/db.json');
+        readAndAppend(newNote, './db/db.json');
         res.json("note added successfuly");
     }
     else{
